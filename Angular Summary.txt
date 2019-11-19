@@ -32,4 +32,29 @@ triggered.
 Creating a first application in Angular
 Download latest version of node
 It basically is a run time environment for executing javascript code outside the browser.
+After downloading the latest version, to check the version of node:
+Command : node --version
+We use a tool called Node Package Manager (NPM) to install third party library. One of the most important library is Angular CLI.
+It is a command line tool which we use to create a new angular project as well as deployable packages.
+Command : npm install -g @angular/cli
+to ensure that the cli is intalled successfully:
+Command: ng --version
 
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.13.6
+@angular-devkit/core         7.3.6
+@angular-devkit/schematics   7.3.6
+@schematics/angular          7.3.6
+@schematics/update           0.13.6
+rxjs                         6.3.3
+typescript                   3.2.4
+
+Now that CLI is installed, we create a new angular project.
+Command : ng new hello-world
+
+After the new project folder is created, go to that folder and run :
+Commnad: ng serve -o
+
+Angular CLI uses a tool called webpack which is a build automation tool. It gets all the scripts and style sheets, combines them and put them in a bundle and then minifies the bundle.
+Webpack automatically injects the style tag into the index.html in runtime.
