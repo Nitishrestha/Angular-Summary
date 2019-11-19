@@ -1,0 +1,35 @@
+Angular:
+It is a framework for building client application using html, css and js/ts
+Why do we need angular?
+we can code using js only but after the codes get bigger, it will be difficult to maintain.
+we need a way to properly structure our application.
+There are js patterns available like revealing mudule pattern, prototype pattern.
+But they are difficult to grasp for beginner like us.
+And applications built with vanilla js, or jquery are hard to test.
+So, there are many frameworks available today to make the client application developement phase easier to build and test.
+Angular to the rescue!
+It keeps our application in a clean structure and loosely coupled which is easy to understand and easy to maintain.
+It has lot of utility code that can be reused over a period of time in same or different other applications.
+Helps in user navigation and browsers history.
+Applications built with angular are easy to test(more testable.)
+We can build client application without angular, but with angular it is very easy to build the client application.
+
+Architecture of angular:
+Modern application has mostly two parts. Front end and Back end.
+Front end we call it UI which is ran at browser and user interacts through it. UI contains HTML, CSS, JS/TS and Angular.
+Front end communicates with backend to communiate, process and save the data.
+We cannot save or store the data in front end as it will get lost once the user clears the browser data. So storing a data in a front end is not a good idea.
+So we store the data in the server. In backend, there are bunch of HTTP services available or APIs to make the datas available to the clients.
+HTTP services/API are endpoints that are accessible via the HTTP protocols.
+We can call them using simple HTTP Request to get or to post(save) the datas.
+Web applications has Front end and backend.
+On backend there are One or more databases and APIs to make the data available to the users(clients)
+We implement the business logic in the backend of the application.
+The frontend or the client are all about presentation. It has HTML templates and the presentation logics of the application.
+Logic is all about displaying the data and responding to user actions like what should happen next when user clicks on some button on some events are
+triggered.
+
+Creating a first application in Angular
+Download latest version of node
+It basically is a run time environment for executing javascript code outside the browser.
+
