@@ -1,0 +1,102 @@
+What is typescript?
+superset of javascript. It has additional featues that js doesnot have and supported by browser.
+Features:
+Strong types
+It has oop concepts like classes, interfaces, access modifiers, generics, constructors
+Compile time errors
+Gives access to great tools out there
+Browsers out there dont understand typescript. We need to compile(transpile) the typescript file to javascript. It is a part
+of building our application. When we build our application, ts compiler kicks in and transpiles ts code to js code that browser
+can understand.
+
+We should install typescript globally on our machine.
+command : npm install -g typescript
+to check the typescript version:
+command : tsc --version
+
+$ tsc --version
+Version 3.7.2
+
+example:
+create a new file (main.ts)
+function log(message){
+    console.log("This is a message : "+message);
+}
+
+var newMessage = "Hello World";
+log(newMessage);
+
+to transpile(compile) it :
+command : tsc main.ts
+
+it will then create a new js file of the same name
+to run:
+command : node main.js
+
+Declaring a variable:
+var a = 10;
+let b = 5;
+
+
+JS version :
+ES5 EcmaScript 5 supported by all browsers
+ES6
+
+function doSomething(){
+    for(var i = 0;i < 5; i++){
+        console.log(i);
+    }
+    console.log("Finally i : "+i);
+}
+doSomething();
+
+will give : 
+0
+1
+2
+3
+4
+Finally i : 5
+this is the problem in using var. As i is available outside the for block.
+
+By default, if we dont assign type to a variable, it will be any.
+
+Class:
+Class groups variables and methods that are highly related
+
+
+Main.ts
+================
+import {Point} from './point';
+
+
+Point.ts
+====================
+
+export class Point{
+	
+}
+
+
+
+class Test{
+	testA: number;
+	testB: number;
+
+	constructor(testA: number, testB: number){
+		this.testA = testA;
+		this.testB = testB;
+	}
+}
+
+the above code is similar to
+
+
+class Test{
+	constructor(public testA: number, public testB: number){
+		
+	}
+}
+
+
+
