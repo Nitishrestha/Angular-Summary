@@ -1,0 +1,83 @@
+Building blocks of angular app:
+1. components
+At the heart of any angular app, we have one or more components. In real world app, we have many number of components.
+What it component?
+It encapsulates Data, HTML and logic for a view.
+
+
+2.modules
+A module is a container or a group of related components.Any angular app has at least one or more modules.
+As the application grows bigger, we would like to break a module into smaller sub modules which are more maintainable.
+Example: Udemy site can have modules like, course module, messaging module, instructor module and admin module
+As an analogy, think of a module as a super-market. There, we have different isles for different products. We 
+have a section for vegetables and fruits. Another for hardware and so on. The bigger the super market, the
+more isles we have. Same applies to our angular app.
+
+How components are created?
+There are only three basic steps to follow
+1. Create a component
+2. Register it to a module
+3. Add an element in an HTML Markup
+
+
+Inside module file(any ts file which is annotated with @NgModule), there is a declarations
+And inside that declarations, we add all the components that are part of this module.
+
+
+Creating component using Angular CLI
+command: ng g c <name of the component>
+what it does is, it generates a folder or package, and adds file to it(html, css, ts and test)
+And in ts file, it automatically imports the Component from '@angular/core' and also registers the
+newly created component to the module where it belong(to the module's declarations array)
+
+
+3.directives 
+We use directive to manipulate the DOM. We can use them to add dom element or remove an existing an dom element or change the
+class of dom element.
+
+<h2>{{ title }}</h2>
+  <h3>{{ "Heading :  "  +getHeading()}}</h3>
+  <ul>
+    <li *ngFor='let course of courses'>
+    {{course}}
+    </li>
+  </ul>
+
+4.services
+When creating a service, we write a ts file name as courses.service.ts
+we annotate the class as @Component as in angular, we dont have a decorator named @Service
+
+ constructor(service: CoursesService) {
+   //const service = new CoursesService();
+   this.courses = service.getCourses();
+  }
+  this is a better approach
+
+In order for dependency injection to work, we need to register the dependency somewhere in the module.
+Inside app.module.ts, we have providers array in @ngModule. We should register all the dependency  that
+all the component of this module depends upon.
+When we register a dependency as a provider in a module, angular will create a single instance of that class for 
+that entire module. 
+
+
+Generating service using angular cli:
+command : ng g s <service_name> eg. ng g s email
+
+While creating a service through cli, we can see @Injectable decorator in the service file.
+We need this decorator only if this service had dependencies in its constructor.
+Example :
+@Injectable() 
+export class EmailService{
+	
+	construct(logService: LogService){
+
+	}
+}
+
+if a service class needs another class dependency, we use @Injectable
+
+
+
+
+
+
