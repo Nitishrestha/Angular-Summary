@@ -1,0 +1,98 @@
+Displaying Data and handling events
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-course',
+  templateUrl: './course.component.html',
+  styleUrls: ['./course.component.css']
+})
+export class CourseComponent implements OnInit {
+
+  title = 'List of courses';
+  imageUrl = 'https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x400.jpg';
+  constructor() { }
+
+  ngOnInit() {
+  }
+}
+
+================================
+<h2>{{title}}</h2>
+<p>
+  <img src = "{{imageUrl}}"/>
+</p>
+
+
+When angular compiles the template, it transalates the interpolation into property binding.
+With property binding, we bind property of the dom element (like src) to a field property in our component.
+So, it can be written as 
+<img [src]="imageUrl" />
+
+So, whenever the value of imageUrl changes, the src attribute of the image element is automatically updated.
+So, what to use? String interpolation or square bracket syntax like above?
+Usually, string interpolation works well for header, paragraph, span, divs wherever we want to render a text value.
+
+One thing about property binding is that it works only one way; from component to the DOM.
+So, if the fields in component changes, angular will update the DOM. But any changes in the DOM are not reflected back in the 
+component. 
+
+
+Attribute Binding:
+<table>
+  <tr>
+    <td [colspan]="colSpan"></td>
+  </tr>
+</table>
+
+
+On doing so, we can see an error in the console. 
+"Cant binf to 'colspan since it isnt a known property of 'td'" 
+
+Here in <h1 [textContent] = "title"></h1>
+We have properties in dom that do not have a representation in HTML.
+Here, we can bind property to the textContent property of H1. This is a property of DOM object and in HTML, we dont have such an attribute. So, when using property binding we should remember that we are actually binding to a property of a DOM object, not an attribute of an HTML element. In 99% of cases, we have HTML attribute and DOM properties have
+1 to 1 mapping.
+
+<table>
+  <tr>
+    <td [attr.colspan]="colSpan"></td>
+  </tr>
+</table>
+
+This way we are telling angular that we are targetting the colspan attribute of HTML element. 
+
+
+Add Bootstrap to our angular application:
+npm install bootstrap --save
+what is does is it first downloads bootstrap and stores it 
+into node module folder but the save flag also adds bootstrap as a dependency in package.json
+
+npm install will go into package.json and downloads all
+the dependencies on the machine.
+
+
+Class binding:
+There are times when we want to add additional class to an element based on some condition. 
+<button class="btn btn-primary" [class.active]="isActive"></button>
+
+
+Event Binding:
+It is used to handle events which is raised from the DOM like key stroke, mouse movement, clicks etc
+
+<button class="btn btn-primary active" (click)="onClick()">Save Button</button>
+
+onClick(){
+    console.log('Save Button was clicked...');
+  }
+
+Sometime we need to get access to the event object that was raised in the event handler.  to do so :
+
+onClick($event){
+    console.log('Save Button was clicked...');
+  }
+
+  <button class="btn btn-primary active" (click)="onClick($event)">Save Button</button>
+
+This $event is something known to angular.
+
+

@@ -1,3 +1,16 @@
-<p>
-  course works!
-</p>
+<h2>{{title}}</h2>
+  <img [src] = "imageUrl"/>
+<table>
+  <tr>
+    <td [attr.colspan]="colSpan"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td [attr.colspan]="spaner"></td>
+  </tr>
+</table>
+<button class="btn btn-primary" [class.active]="isActive">Save</button>
+<br>
+<button class="btn btn-primary active" (click)="onClick()">Save Button</button>
